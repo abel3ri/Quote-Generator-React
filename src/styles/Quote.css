@@ -1,0 +1,51 @@
+/* HTML: <div class="loader"></div> */
+.Quote {
+  padding: 2rem;
+  background-color: #6b6b6b;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  width: 32rem;
+}
+.Quote .btn-random {
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  background-color: #fff;
+  color: #6b6b6b;
+  border: none;
+  outline: none;
+}
+.Quote div h3::first-letter {
+  font-size: 3rem;
+  font-family: "Times New Roman", Times, serif;
+  color: orangered;
+}
+.Quote div h5 {
+  font-family: "Times New Roman", Times, serif;
+}
+.Quote .loader {
+  width: 80px;
+  height: 70px;
+  border: 5px solid #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px 2px rgba(255, 255, 255, 0.1);
+  padding: 2px 8px;
+  box-sizing: border-box;
+  background: linear-gradient(#000000 0 0) 0 0/8px 20px,
+    linear-gradient(#000000 0 0) 100% 0/8px 20px,
+    radial-gradient(farthest-side, #000 90%, #fff) 0 5px/8px 8px content-box,
+    #fff;
+  background-repeat: no-repeat;
+  animation: l3 2s infinite linear;
+}
+@keyframes l3 {
+  25% {
+    background-position: 0 0, 100% 100%, 100% calc(100% - 5px);
+  }
+  50% {
+    background-position: 0 100%, 100% 100%, 0 calc(100% - 5px);
+  }
+  75% {
+    background-position: 0 100%, 100% 0, 100% 5px;
+  }
+}
