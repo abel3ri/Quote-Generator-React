@@ -4,15 +4,10 @@ import "../styles/Quote.css";
 
 export default function Quote() {
   const [quote, setQuote] = useState({ author: "", text: "" });
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchInitialQuote() {
-      const quote = (
-        await axios.get("http://inspo-quotes-api.herokuapp.com/quotes/random")
-      ).data.quote;
-      setQuote(quote);
-    }
-    fetchInitialQuote();
+    fetchQuote();
   }, []);
 
   const fetchQuote = async () => {
@@ -20,16 +15,12 @@ export default function Quote() {
       await axios.get("http://inspo-quotes-api.herokuapp.com/quotes/random")
     ).data.quote;
     setQuote(quote);
+    setIsLoading(false);
   };
-  if (quote.author == "") {
-    return (
-      <>
-        <div className="loader"></div>
-      </>
-    );
-  }
+
   return (
     <div className="Quote">
+      {isLoading && <div className="loader"></div>}
       <div>
         <h3>"{quote.text}</h3>
         <h5> - {quote.author}</h5>
